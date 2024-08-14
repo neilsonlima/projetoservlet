@@ -42,6 +42,10 @@ src/
 - **Objetos HTTP Mock**: Implementações personalizadas de `HttpServletRequest` e `HttpServletResponse` para facilitar testes e aprendizado.
 - **Mapeamento de Servlets**: Mapeamentos de servlets configuráveis via `web.xml` para direcionar requisições aos servlets apropriados.
 
+## Transmissão ao Vivo
+
+O desenvolvimento deste projeto está sendo transmitido ao vivo na minha conta da Twitch: **[bonnerlima](https://www.twitch.tv/bonnerlima)**. Siga para acompanhar o progresso em tempo real, aprender mais sobre servidores web em Java e interagir durante as transmissões!
+
 ## Primeiros Passos
 
 ### Pré-requisitos
