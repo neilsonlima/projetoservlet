@@ -1,0 +1,19 @@
+<web-app>
+    <servlet>
+        <servlet-name>ExampleServlet</servlet-name>
+        <servlet-class>main.java.com.projetoservlet.servlet.ExampleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExampleServlet</servlet-name>
+        <url-pattern>/example</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>main.java.com.projetoservlet.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+</web-app>
