@@ -36,7 +36,6 @@ src/
 
 - **`ApplicationStart.java`**: Classe principal que contém o método `main` para iniciar o servidor.
 - **`server/`**: Contém classes principais que simulam o servidor web e manipulam requisições HTTP.
-- **`mock/`**: Inclui classes mock que imitam o comportamento de `HttpServletRequest` e `HttpServletResponse`.
 - **`servlet/`**: Abriga implementações de servlets de exemplo.
 - **`resources/`**: Contém o arquivo `web.xml` para configuração de mapeamento de servlets.
 - **`test/`**: Contém testes unitários para a simulação do servidor.
