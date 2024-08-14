@@ -16,15 +16,14 @@ src/
 │   │       └── projetoservlet/
 │   │           ├── ApplicationStart.java
 │   │           ├── server/
-│   │           │   ├── SimpleHttpServer.java
-│   │           │   ├── HttpResponse.java
-│   │           │   ├── Servlet.java
+│   │           │   ├── HttpServer.java
+│   │           │   ├── HttpServlet.java
+│   │           │   ├── HttpServletRequest.java
+│   │           │   ├── HttpServletResponse.java
 │   │           │   └── ServletMapper.java
-│   │           ├── mock/
-│   │           │   ├── MockHttpServletRequest.java
-│   │           │   └── MockHttpServletResponse.java
 │   │           └── servlet/
 │   │               ├── ExampleServlet.java
+│   │               └── HelloServlet.java
 │   └── resources/
 │       └── web.xml
 └── test/
