@@ -5,6 +5,7 @@ import main.java.com.projetoservlet.server.HttpServer;
 public class ApplicationStart {
 
     public static void main(String[] args) {
-        HttpServer.start();
+        HttpServer httpServer = new HttpServer(8080);
+        httpServer.start();
     }
 }

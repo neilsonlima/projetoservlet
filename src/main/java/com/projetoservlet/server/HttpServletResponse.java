@@ -9,9 +9,11 @@ public class HttpServletResponse {
     private String statusMessage = "OK";
     private Map<String, String> headers = new HashMap<>();
     private StringBuilder body = new StringBuilder();
+    private PrintWriter outputStream;
 
-    public HttpServletResponse(String statusVersion){
+    public HttpServletResponse(PrintWriter outputStream, String statusVersion){
         this.httpVersion = statusVersion;
+        this.outputStream = outputStream;
     }
 
     public void setStatusCode(int statusCode, String statusMessage){
@@ -34,6 +36,10 @@ public class HttpServletResponse {
         }
         out.println(); // Linha em branco separando cabeçalhos do corpo
         out.println(body.toString());
+    }
+
+    public PrintWriter getOutputStream(){
+        return this.outputStream;
     }
 
 }

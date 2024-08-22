@@ -1,15 +1,15 @@
 package main.java.com.projetoservlet.server;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 class ServletMapper {
     private final Map<String, String> servletMappings = new HashMap<>();
@@ -51,21 +51,21 @@ class ServletMapper {
         }
     }
 
-    public void handleRequest(String urlPattern, String method, PrintWriter out) {
-        String servletClass = servletMappings.get(urlPattern);
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) {
+        String servletClass = servletMappings.get(request.getUrl());
         if (servletClass != null) {
             try {
                 HttpServlet servlet = (HttpServlet) Class.forName(servletClass).getDeclaredConstructor().newInstance();
-                servlet.service(method, out);
+                servlet.service(request, response);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Error no handle request: " + e.getMessage());
             }
         } else {
             // Enviar a linha de status de resposta HTTP
-            out.println("HTTP/1.1 404 Not Found");
-            out.println("Content-Type: application/json");
-            out.println("Content-Length: 0");
-            out.println("");
+            response.getOutputStream().println("HTTP/1.1 404 Not Found");
+            response.getOutputStream().println("Content-Type: application/json");
+            response.getOutputStream().println("Content-Length: 0");
+            response.getOutputStream().println("");
         }
     }
 }

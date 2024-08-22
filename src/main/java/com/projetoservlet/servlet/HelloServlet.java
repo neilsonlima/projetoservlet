@@ -1,44 +1,44 @@
 package main.java.com.projetoservlet.servlet;
-import java.io.PrintWriter;
-
 import main.java.com.projetoservlet.server.HttpServlet;
+import main.java.com.projetoservlet.server.HttpServletRequest;
+import main.java.com.projetoservlet.server.HttpServletResponse;
 
 public class HelloServlet implements HttpServlet {
 
     @Override
-    public void doGet(PrintWriter out){
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
         // Enviar a linha de status de resposta HTTP
-        out.println("HTTP/1.1 200 OK");
-        out.println("Content-Type: application/json");
+        response.getOutputStream().println("HTTP/1.1 200 OK");
+        response.getOutputStream().println("Content-Type: application/json");
         String httpResponse = "{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"GET\" }";
-        out.println("Content-Length: " + httpResponse.length());
-        out.println("");
-        out.println(httpResponse);
+        response.getOutputStream().println("Content-Length: " + httpResponse.length());
+        response.getOutputStream().println("");
+        response.getOutputStream().println(httpResponse);
     }
 
     @Override
-    public void doPost(PrintWriter out){
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
         // Enviar a linha de status de resposta HTTP
-        out.println("HTTP/1.1 200 OK");
-        out.println("Content-Type: application/json");
+        response.getOutputStream().println("HTTP/1.1 200 OK");
+        response.getOutputStream().println("Content-Type: application/json");
         String httpResponse = "{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"Post\" }";
-        out.println("Content-Length: " + httpResponse.length());
-        out.println("");
-        out.println(httpResponse);
+        response.getOutputStream().println("Content-Length: " + httpResponse.length());
+        response.getOutputStream().println("");
+        response.getOutputStream().println(httpResponse);
     }
 
     @Override
-    public void service(String method, PrintWriter out){
-        if("GET".equalsIgnoreCase(method)){
-            doGet(out);
-        } else if ("POST".equalsIgnoreCase(method)) {
-            doPost(out);
+    public void service(HttpServletRequest request, HttpServletResponse response){
+        if("GET".equalsIgnoreCase(request.getMethod())){
+            doGet(request, response);
+        } else if ("POST".equalsIgnoreCase(request.getMethod())) {
+            doPost(request, response);
         } else {
             // Enviar a linha de status de resposta HTTP
-            out.println("HTTP/1.1 405 Method Not Allowed");
-            out.println("Content-Type: application/json");
-            out.println("Content-Length: 0");
-            out.println("");
+            response.getOutputStream().println("HTTP/1.1 405 Method Not Allowed");
+            response.getOutputStream().println("Content-Type: application/json");
+            response.getOutputStream().println("Content-Length: 0");
+            response.getOutputStream().println("");
         }
 
     }
