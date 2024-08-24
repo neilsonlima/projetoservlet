@@ -7,24 +7,16 @@ public class HelloServlet implements HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response){
-        // Enviar a linha de status de resposta HTTP
-        response.getOutputStream().println("HTTP/1.1 200 OK");
-        response.getOutputStream().println("Content-Type: application/json");
-        String httpResponse = "{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"GET\" }";
-        response.getOutputStream().println("Content-Length: " + httpResponse.length());
-        response.getOutputStream().println("");
-        response.getOutputStream().println(httpResponse);
+        response.setContentType("application/json");
+        response.send("{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"GET\" }");
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response){
-        // Enviar a linha de status de resposta HTTP
-        response.getOutputStream().println("HTTP/1.1 200 OK");
-        response.getOutputStream().println("Content-Type: application/json");
-        String httpResponse = "{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"Post\" }";
-        response.getOutputStream().println("Content-Length: " + httpResponse.length());
-        response.getOutputStream().println("");
-        response.getOutputStream().println(httpResponse);
+
+        response.setContentType("application/json");
+        response.send("{ \"message\": \"HelloServlet executado com sucesso!\", \"method\": \"Post\" }");
+
     }
 
     @Override
