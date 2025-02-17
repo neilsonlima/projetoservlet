@@ -1,4 +1,4 @@
-# Simulação de Servidor Web Simples em Java
+# Simulação de Servidor Web Simples em Java para fins educacionais
 
 Este repositório contém o `projetoservlet`, uma simulação simples de um servidor web em Java, projetada para fins educacionais. O servidor emula funcionalidades básicas de HTTP, permitindo que os usuários explorem o funcionamento interno de servlets, requisições e respostas HTTP em um ambiente controlado. Ele também inclui uma implementação mock de `HttpServletRequest` e `HttpServletResponse` para simular interações de servlets sem a necessidade de um servidor de aplicação completo como Tomcat.
 
